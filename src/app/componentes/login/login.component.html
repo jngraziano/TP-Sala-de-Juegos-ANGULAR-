@@ -21,7 +21,7 @@
     </div>
   </div>
 </div-->
- <div class="container" >
+ <!-- <div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
       <div class="imgcontainer">
@@ -54,4 +54,41 @@
      
     </form>
   </div>
-</div>
+</div> -->
+
+
+
+
+
+
+
+
+<body >
+  <div class="login-box">
+      <!-- SPINNER -->
+    <!-- <ion-spinner *ngIf="spinner" name="crescent"></ion-spinner> -->
+            
+    <h1>Login</h1>
+   
+    <div class="textbox">
+      <!-- <ion-icon  name="contact"></ion-icon> -->
+      <input type="email"  [(ngModel)]="cuenta.email"  placeholder="email@email.com" >
+    </div>
+  
+    <div class="textbox" >
+      <!-- <ion-icon *ngIf="!spinner" name="lock"></ion-icon> -->
+      <input  type="password" [(ngModel)]="cuenta.clave"  placeholder="password" >
+    </div>
+  
+    <div id="buttons">
+    <button class="btn" (click)="login()">INGRESAR</button>
+    <p *ngIf="error">Usuario Incorrecto</p>
+    <p *ngIf="success">Usuario Incorrecto</p>
+
+    <!-- <button  class="btn" id="creoSheetCss"  (click)="logeo()"> -->
+      <!-- Acceder como...
+    </button> -->
+    </div>
+  </div>
+  
+  </body>
