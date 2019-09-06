@@ -1,5 +1,7 @@
 # TP-Sala-de-Juegos-ANGULAR-
-Trabajo práctico obligatorio para la promoción directa
+Trabajo Practico Sala de Juegos
 
-# https://octaviovillegas.github.io/TP-Sala-de-Juegos-ANGULAR-/.
+Julian Graziano 2019
+
+# https://jngraziano.github.io/TP-Sala-de-Juegos-ANGULAR-/.
 
