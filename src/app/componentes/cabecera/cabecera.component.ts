@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
+    navbarOpen = false;
+  constructor() {
+    this.navbarOpen = false;
 
-  constructor() { }
+   }
 
   ngOnInit() {
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
+
+  Desloguear()
+  {
+    localStorage.setItem('token', null);
   }
 
 }
