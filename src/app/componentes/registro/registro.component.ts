@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+// import {  } from "..";
 //para poder hacer las validaciones
 //import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({
@@ -14,6 +15,15 @@ export class RegistroComponent implements OnInit {
   formRegistro:FormGroup=this.miConstructor.group({
     usuario:this.email
   });*/
+
+  public usuario  =
+  {
+    "email" : "",
+    "psw" : "",
+    "pswR" : ""
+
+
+  }
   constructor( ) { }
 
   ngOnInit() {

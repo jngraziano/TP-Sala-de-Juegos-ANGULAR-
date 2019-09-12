@@ -4,12 +4,53 @@
 
 <!-- Centered Pills -->
 <app-cabecera></app-cabecera>
-<ul class="nav nav-pills nav-justified">
-    <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
-    <li><a (click)="llamaService()">Servicio</a></li>
+
+<header>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</header>
+
+<body>
+<!-- <ul class="nav nav-pills nav-justified"> -->
+    <!-- <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li> -->
+    <!-- <li><a (click)="llamaService()">Servicio</a></li>
     <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
-    <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
-  </ul>
+    <li><a (click)="llamaServicePromesa()">Serv observable</a></li> -->
+  <!-- </ul> -->
+
+
+
+
+  <nav class="navbar navbar-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+
+        
+            <div class="container">
+               
+                <div class="row">
+                  <div class="col">
+                      <button class="btn btn-primary btn-block" (click)="llamaService()">SERVICIO</button>
+                  </div>
+                  <div class="col">
+                      <button class="btn btn-success btn-block" (click)="llamaServicePromesa()">Serv PROMESA</button>
+                  </div>
+                  <div class="col">
+                      <button class="btn btn-danger btn-block" (click)="llamaServicePromesa()">Serv OBSERVABLE</button>
+                  </div>
+                </div>
+              </div>
+          
+
+               
+               
+        
+    
+      </div>
+  </nav>
   
 <app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
-
+</body>

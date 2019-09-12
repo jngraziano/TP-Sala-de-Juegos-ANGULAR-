@@ -1,18 +1,51 @@
+<app-cabecera></app-cabecera>
+<header>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </header>
 <body>
   <div class="jumbotron">
-    <h2 id="terminos">Terminos y condiciones</h2>
+    <h2>Terminos y condiciones</h2>
     <p>El Gobierno de la República Argentina (en adelante el “Gobierno Nacional”) no es responsable por los daños y perjuicios que puedan surgir, incluyendo, sin límite, daños, pérdidas o gastos directos, indirectos, que surjan en relación con el uso de los Activos Digitales o la imposibilidad de uso, en relación con cualquier falla en el vencimiento, error, omisión, interrupción, defecto, demora en la operación o transmisión, virus de computadora o falla del sistema de línea, aún en el caso de que el Gobierno Nacional o sus representantes fueran informados sobre la posibilidad de dichos daños, pérdidas o gastos.</p>
     <p>El Gobierno Nacional no controla ni garantiza la ausencia de virus ni de otros elementos en los contenidos que puedan producir alteraciones en su sistema informático (software y hardware) o en los documentos electrónicos y ficheros almacenados en su sistema informático.</p>
     <p>El Gobierno Nacional no puede garantizar que la transmisión de información por parte de los Usuarios sea completamente segura. El Usuario asume este riesgo.</p>
    
   </div>
-  <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
-  <button  class="cancelbtn"  routerLink="/Principal" style="width:auto;">No acepto</button>
+
+  <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col" id="terminosC">
+            <strong><p>Acepto los términos y condiciones: </p></strong>
+            <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-success" style="width:50%;">Acepto</button>
+            <button  class="cancelbtn"  routerLink="/Principal" style="width:50%;" class="btn btn-outline-danger">No acepto</button>
+        </div>
+      </div>
+     
+    </div>
+
+
+ 
+
+
+
   <div id="id01" class="modal">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar">×</span>
     <form class="modal-content animate" >
-      <div class="container">
+
+
+      <!-- <div class="container"> -->
+      <div class="login-box">
+
+
+
+
+<!--         
         <label><b>Email</b></label>
         <input type="text" placeholder="Ingresa tu correo" name="email" required>
   
@@ -27,8 +60,45 @@
         <div class="clearfix">
           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
           <button type="submit" class="signupbtn">Registrarme</button>
+        </div> -->
+
+       
+         <h1 >Agregar</h1>
+        
+        
+          <div class="input-group mb-3">
+              
+             <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email"  placeholder="Ingresa tu correo" required >
+          
+          </div>
+          
+          <div class="input-group mb-3">
+         
+            <input  type="password" class="form-control" [(ngModel)]="usuario.psw" name="psw"  placeholder="Aca la clave" required>
+  
+         </div>
+          
+         <div class="input-group mb-3">
+         
+            <input  type="password" class="form-control" [(ngModel)]="usuario.pswR" name="psw-repeat"  placeholder="Aca repeti la misa clave de arriba" required>
+  
+         </div>
+         <div class="input-group mb-3">
+            <input type="checkbox" checked="checked">Recordar mis datos
+
+         </div>
+
+        <div class="clearfix">
+         
+            <!-- <button class="btn btn-outline-success btn-block"  (click)="agregarUsuario()">CREAR</button> -->
+            <button type="button" class="btn btn-outline-danger btn-block" onclick="document.getElementById('id01').style.display='none'">Me arrepenti</button>
+            <button type="submit" class="btn btn-outline-success btn-block">Registrarme</button>
         </div>
-      </div>
+
+
+
+
+      </div> 
     </form>
   </div>
   
