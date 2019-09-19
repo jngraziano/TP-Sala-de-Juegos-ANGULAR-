@@ -1,8 +1,13 @@
 
+@import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+
 form {
+    font-family: 'Turret Road', cursive;
     border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
+    background:#84AFE6;
+    width: 88%;
+    margin-left: 6%;
 }
 
 input[type=text], input[type=password] {
@@ -50,6 +55,9 @@ img.avatar {
 
 .container {
     padding: 16px;
+}
+#ingresoN{
+    margin-left: 20%;
 }
 
 span.psw {
