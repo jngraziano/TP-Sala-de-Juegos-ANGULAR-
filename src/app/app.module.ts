@@ -56,6 +56,7 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { AppRoutingModule } from './/app-routing.module';
+import { PptComponent } from './componentes/ppt/ppt.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { AppRoutingModule } from './/app-routing.module';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    PptComponent
   ],
   imports: [
     BrowserModule,
