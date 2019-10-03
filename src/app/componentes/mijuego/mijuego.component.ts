@@ -162,7 +162,7 @@ export class MijuegoComponent implements OnInit {
       if (!this.palabraMostrar.includes('_')) {
           // alert('Has ganado!!!');
           
-          setTimeout(function() {  location.reload(true); }, 3000);
+          // setTimeout(function() {  location.reload(true); }, 3000);
           this.gano = true;
           // Refrescamos la página para volver a jugar
          
@@ -170,7 +170,7 @@ export class MijuegoComponent implements OnInit {
       // Ha perdido: ¿Tiene 0 intentos?
       if (this.intentos == 0) {
           // alert('Has Perdido!!! Era: ' + this.palabraAdivinar.join(''));
-          setTimeout(function() { location.reload(true); }, 3000);
+          // setTimeout(function() { location.reload(true); }, 3000);
           this.perdio = true;
           // Refrescamos la página para volver a jugar
           
