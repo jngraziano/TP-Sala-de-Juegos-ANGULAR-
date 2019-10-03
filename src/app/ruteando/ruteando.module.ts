@@ -22,6 +22,7 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { PptComponent } from "../componentes/ppt/ppt.component";
+import { MijuegoComponent } from "../componentes/mijuego/mijuego.component";
 
 
 // declaro donde quiero que se dirija
@@ -44,6 +45,7 @@ children:
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+      {path: 'Mijuego' , component: MijuegoComponent},
       {path: 'PPT' , component: PptComponent}]
 },
 {path: '**' , component: ErrorComponent},

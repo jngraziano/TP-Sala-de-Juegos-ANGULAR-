@@ -1,0 +1,28 @@
+<input [(ngModel)]="letra" type="text" name="letra" ngDefaultControl  placeholder="Dame una letra" maxlength="1"
+onkeypress="return (event.charCode > 64 && 
+event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+>
+
+<button (click)="comprobarLetraUsuario()" name="boton"  (keyup.enter)="comprobarLetraUsuario()">Comprobar</button>
+<div >
+  <label *ngFor="let item of palabraMostrar">{{item}}</label> 
+  <!-- [(ngModel)]="palabraMostrar" name="palabramostrar" ngDefaultControl -->
+</div>
+
+<div >
+  <label [(ngModel)]="resultado" name="resultado" ngDefaultControl ></label>
+</div>
+
+
+<div >
+    <h2>Intentos</h2>
+  <label [(ngModel)]="intentos" name="intentos" ngDefaultControl >Intentos restantes: {{intentos}}</label>
+</div>
+
+
+<div >
+    <h2>Historial letras usadas</h2>
+  <label *ngFor="let item of historial">{{item}}</label>
+  <!-- <label [(ngModel)]="historial" *ngIf="historial == null" name="historial" ngDefaultControl >Historial letras usadas</label> -->
+
+</div>

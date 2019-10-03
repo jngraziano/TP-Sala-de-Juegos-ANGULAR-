@@ -57,6 +57,7 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { AppRoutingModule } from './/app-routing.module';
 import { PptComponent } from './componentes/ppt/ppt.component';
+import { MijuegoComponent } from './componentes/mijuego/mijuego.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { PptComponent } from './componentes/ppt/ppt.component';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    PptComponent
+    PptComponent,
+    MijuegoComponent
   ],
   imports: [
     BrowserModule,
