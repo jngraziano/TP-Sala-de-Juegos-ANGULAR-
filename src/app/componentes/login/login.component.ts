@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
  
   usuarios:any [];
   cuenta: { email: string, clave: string } = {
-    email: '',
-    clave: ''
+    email: 'usuario@gmail.com',
+    clave: '1234'
   };
   // mail = '';
   // clave= '';

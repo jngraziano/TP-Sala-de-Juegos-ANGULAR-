@@ -12,19 +12,20 @@
 
 <body>
   <div>
-    <div class="wrap">
+    <div class="wrap" style="text-align: center">
       <h2>Intentos</h2>
       <label [(ngModel)]="intentos" name="intentos" ngDefaultControl class="subtitulos" >Intentos restantes: {{intentos}}</label>
       <h2>Historial letras usadas</h2>
       <label *ngFor="let item of historial"  class="subtitulos">{{item}}</label>
       <br>
       <label *ngIf="gano" class="gano"  style="width: 100%">Ganaste! Acertaste</label>
-      <label [(ngModel)]="palabraAdivinar" class="perdio" *ngIf="perdio" style="width: 100%">Perdiste! Las letras era {{palabraAdivinar}}</label>
+      <label [(ngModel)]="palabraAdivinar" class="perdio" *ngIf="perdio" style="width: 100%">Perdiste! Las letras eran {{palabraAdivinar}}</label>
 
     </div>
     <div class=" box box4 shadow4">
       <br>
-      <img src="{{futbolista.imageUrl}}" class="rounded mx-auto d-block" style="width:65%;height: 70%;" >
+      <!-- 5px 20px 5px -->
+      <img src="{{futbolista.imageUrl}}" class="d-block" style="width:65%;height: 70%;  border-radius: 50%; margin-left: 20%" >
       <br><br>
       <div class="labelPalabra  ">
         <label *ngFor="let item of palabraMostrar">{{item}}</label> 
