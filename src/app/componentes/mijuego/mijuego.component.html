@@ -1,28 +1,66 @@
-<input [(ngModel)]="letra" type="text" name="letra" ngDefaultControl  placeholder="Dame una letra" maxlength="1"
-onkeypress="return (event.charCode > 64 && 
-event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
->
 
-<button (click)="comprobarLetraUsuario()" name="boton"  (keyup.enter)="comprobarLetraUsuario()">Comprobar</button>
-<div >
-  <label *ngFor="let item of palabraMostrar">{{item}}</label> 
-  <!-- [(ngModel)]="palabraMostrar" name="palabramostrar" ngDefaultControl -->
+<header>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SCRIPTS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+  </header>
+
+<body>
+  <div>
+    <div class="wrap">
+      <h2>Intentos</h2>
+      <label [(ngModel)]="intentos" name="intentos" ngDefaultControl >Intentos restantes: {{intentos}}</label>
+      <h2>Historial letras usadas</h2>
+      <label *ngFor="let item of historial">{{item}}</label>
+      <br>
+      <label *ngIf="gano" class="gano"  style="width: 100%">Ganaste! Acertaste</label>
+      <label [(ngModel)]="palabraAdivinar" class="perdio" *ngIf="perdio" style="width: 100%">Perdiste! Las letras era {{palabraAdivinar}}</label>
+
+    </div>
+    <div class=" box box4 shadow4">
+      <br>
+      <img src="{{futbolista.imageUrl}}" class="rounded mx-auto d-block" style="width:65%;height: 70%;" >
+      <br><br>
+      <div class="labelPalabra  ">
+        <label *ngFor="let item of palabraMostrar">{{item}}</label> 
+    </div>
+      <input [(ngModel)]="letra" class="form-control" type="text" name="letra" ngDefaultControl  placeholder="Adivina el apellido del jugador" maxlength="1"
+      onkeypress="return (event.charCode > 64 && 
+      event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+      style="text-align: center;"
+      >
+
+      <button (click)="comprobarLetraUsuario()" name="boton" class="btn btn-info btn-block"  (keyup.enter)="comprobarLetraUsuario()">Comprobar</button>
+      <!-- </div> -->
+    </div>
+  
+
+    <div>
+      <label [(ngModel)]="resultado" name="resultado" ngDefaultControl ></label>
+    </div>
+
+    
+
+  
+
 </div>
 
-<div >
-  <label [(ngModel)]="resultado" name="resultado" ngDefaultControl ></label>
-</div>
 
 
-<div >
-    <h2>Intentos</h2>
-  <label [(ngModel)]="intentos" name="intentos" ngDefaultControl >Intentos restantes: {{intentos}}</label>
-</div>
+
+<!-- <div class="wrap">
+  <div class="box box1 shadow1">
+    <h3>Shadow 1</h3>
+  </div>
+</div>  -->
 
 
-<div >
-    <h2>Historial letras usadas</h2>
-  <label *ngFor="let item of historial">{{item}}</label>
-  <!-- <label [(ngModel)]="historial" *ngIf="historial == null" name="historial" ngDefaultControl >Historial letras usadas</label> -->
 
-</div>
+
+
+</body>

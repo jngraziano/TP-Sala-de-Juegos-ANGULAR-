@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MijuegoComponent implements OnInit {
 
-    listaPalabras = ['CANIGGIA', 'MARADONA', 'MESSI', 'AGUERO'];
+    listaPalabras = ['CANIGGIA', 'MARADONA', 'MESSI', 'AGUERO', 'CENTURION'];
     palabraAdivinar = [];
     palabraMostrar = [];
     historialLetrasUsuario = [];
@@ -17,6 +17,13 @@ export class MijuegoComponent implements OnInit {
     letra:string;
     resultado:string;
     historial = [];
+
+    gano:boolean = false;
+    perdio:boolean = false;
+
+    futbolista = {
+      imageUrl : ""
+    }
    
 
 
@@ -42,7 +49,28 @@ export class MijuegoComponent implements OnInit {
       // console.log(posAleatoriaListaPalabras);
       //// 1.2 Obtengo la palabra aleatoria
       let palabraAleatoria = this.listaPalabras[posAleatoriaListaPalabras];
+      switch (palabraAleatoria) {
+        case "CANIGGIA":
+          this.futbolista.imageUrl = "./assets/imagenes/caniggia.jpg";
+          break;
+        case "MESSI":
+          this.futbolista.imageUrl = "./assets/imagenes/messi.jpg";
+        break;
+        case "MARADONA":
+          this.futbolista.imageUrl = "./assets/imagenes/maradona.png";      
+        break;
+        case "AGUERO":
+            this.futbolista.imageUrl = "./assets/imagenes/aguero.jpg";
+        break;
+        case "CENTURION":
+            this.futbolista.imageUrl = "./assets/imagenes/centurion.jpg";
+        break;
+      
+        default:
+          break;
+      }
       console.log(palabraAleatoria);
+
       //// 1.3 Separo la palabra en letras y lo guardo
       this.palabraAdivinar = palabraAleatoria.split('');
       //// 2 Preparo el array que va a ver el usuario. Tendrá el mismo número de guiones que letras en palabraAdivinar
@@ -132,15 +160,20 @@ export class MijuegoComponent implements OnInit {
    acabarJuego () {
       // Ha ganado: ¿Le queda guiones al jugador?
       if (!this.palabraMostrar.includes('_')) {
-          alert('Has ganado!!!');
+          // alert('Has ganado!!!');
+          
+          setTimeout(function() {  location.reload(true); }, 3000);
+          this.gano = true;
           // Refrescamos la página para volver a jugar
-          location.reload(true);
+         
       }
       // Ha perdido: ¿Tiene 0 intentos?
       if (this.intentos == 0) {
-          alert('Has Perdido!!! Era: ' + this.palabraAdivinar.join(''));
+          // alert('Has Perdido!!! Era: ' + this.palabraAdivinar.join(''));
+          setTimeout(function() { location.reload(true); }, 3000);
+          this.perdio = true;
           // Refrescamos la página para volver a jugar
-          location.reload(true);
+          
       }
   }
 

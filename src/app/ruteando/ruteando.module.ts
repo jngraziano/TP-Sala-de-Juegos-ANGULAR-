@@ -45,7 +45,7 @@ children:
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'Mijuego' , component: MijuegoComponent},
+      {path: 'Ahorcado' , component: MijuegoComponent},
       {path: 'PPT' , component: PptComponent}]
 },
 {path: '**' , component: ErrorComponent},
