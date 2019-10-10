@@ -55,12 +55,12 @@
           </tr>
       </thead>
   
-          <tbody id="tBodyTable" >
-              <tr> 
+          <tbody id="tBodyTable" *ngFor="let jugador of listado">
             
-                <tr *ngFor="let jugador of listado" >
-                  <td>{{jugador.usuario}} </td>
-                  <td>{{jugador.cuit}} </td> 
+            
+                <tr  >
+                  <td style="color: white;">{{jugador.email}} </td>
+                  <!-- <td>{{jugador.cuit}} </td>  -->
                   <!-- <td>{{jugador.sexo | sexo| uppercase}} </td> 
                   <td>{{jugador.gano}} </td>  -->
                   
