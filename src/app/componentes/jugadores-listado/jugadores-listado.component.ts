@@ -55,7 +55,7 @@ export class JugadoresListadoComponent implements OnInit {
       
     });
   }
-  }
+  
   // TraerGanadores(){
   //   this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
   //     //console.info("jugadores listado",(data));
