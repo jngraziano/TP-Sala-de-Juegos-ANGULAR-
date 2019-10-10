@@ -6,7 +6,90 @@
 </div-->
 
 
-<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h3 class="title">Velocidad y AA</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+    <div class="circle">
+      <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke" cx="60" cy="60" r="50"/>
+    </svg> -->
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="title">P P T</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+    <div class="circle">
+     <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke" cx="60" cy="60" r="50"/>
+    </svg>-->
+    </div> 
+  </div>
+  <div class="card">
+    <h3 class="title">Adivina N°</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+     <div class="circle">
+     <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke" cx="60" cy="60" r="50"/>
+    </svg> -->
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="title">Ahorcado</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+    
+    <div class="circle" >
+      <table >
+        <thead>
+          <tr>
+            <td>
+              Usuario
+            </td>
+            <td>
+              Aciertos
+            </td>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of listadoAhorcado">
+          <tr>
+            <td>
+                {{item.email}}
+            </td>
+            <td style="text-align: center;">
+                {{item.valor}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     
+      <!-- Cant. Aciertos: 
+      ------------- -->
+     <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke" cx="60" cy="60" r="50"/>
+    </svg>-->
+    </div> 
+  </div>
+</div>
+</body>
+
+
+<!-- <html>
 <header>
 
     <meta charset="utf-8" />
@@ -18,28 +101,6 @@
 </header>
 
 <body>
-<!-- <table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let juego of listado">
-        <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
-      </tr>
-     
-    </tbody>
-  </table> -->
-
-
-
-
 
 
   <table class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
@@ -49,7 +110,7 @@
           <th  scope="col" class="col1">JUEGO</th>
           <th  scope="col" class="col2">JUGADOR</th>
           <th  scope="col" class="col3">RESULTADO</th>
-          <!-- <th  scope="col" class="col4">GANO</th> -->
+       
 
 
         </tr>
@@ -65,13 +126,11 @@
                 <td *ngIf="juego.gano">Gano </td>   
                 <td *ngIf="!juego.gano">Perdio</td>     
                 
-                <!-- <td><button class="btn btn-warning" (click)="editar(item)">Edit</button>
-                <button class="btn btn-danger" (click)="borrar(item)">Delete</button></td> -->
-
+              
 
              
             </tr> 
         
            </tbody>
           </table>
-</body>
+</body> -->

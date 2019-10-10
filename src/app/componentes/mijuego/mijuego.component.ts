@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-mijuego',
@@ -11,6 +12,9 @@ export class MijuegoComponent implements OnInit {
     palabraAdivinar = [];
     palabraMostrar = [];
     historialLetrasUsuario = [];
+    aciertos:number = 0;
+    mAciertos:boolean = false;
+    ahorcadoDatos:any [];
    
     nodoHistorial:string;
     intentos:number = 5;
@@ -25,10 +29,14 @@ export class MijuegoComponent implements OnInit {
       imageUrl : ""
     }
    
+    usuarioLogueado: any;
+    usuarioLogeadoAhorcado: any;
 
 
-  constructor() { 
-    
+  constructor(private baseService:FirebaseService) { 
+    this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
+    this.checkAciertos();
+   
   }
 
   ngOnInit() {
@@ -127,6 +135,7 @@ export class MijuegoComponent implements OnInit {
           console.log(this.palabraMostrar);
       }
       this.historial.push(letraUsuario);
+     
       // letter_space.innerHTML = hidden_letter.join("");
       // document.getElementById(letter).classList.add("letter-correct");
   }
@@ -159,12 +168,43 @@ export class MijuegoComponent implements OnInit {
 //    */
    acabarJuego () {
       // Ha ganado: ¿Le queda guiones al jugador?
+
+    //   this.baseService.getItems("salaJuegos/ahorcado").then(ahorcadoDatos => {
+
+    //     this.ahorcadoDatos = ahorcadoDatos;
+       
+
+    //     let usuarioConDatos = this.ahorcadoDatos.find(elem => (elem.email == this.usuarioLogueado.email ));
+
+    //     if (usuarioConDatos !== undefined) {
+    //      this.aciertos = usuarioConDatos.valor;
+        
+
+    //     }
+
+
+    // });
       if (!this.palabraMostrar.includes('_')) {
           // alert('Has ganado!!!');
           
           // setTimeout(function() {  location.reload(true); }, 3000);
+          this.aciertos=this.aciertos+1;
+          this.mAciertos = true;
           this.gano = true;
-          // Refrescamos la página para volver a jugar
+
+           let usuarioValor = {
+            "email": this.usuarioLogueado.email,
+            "valor": this.aciertos,
+
+          }
+          let usuarioValorUpdate = {
+            "valor": this.aciertos,
+
+          }
+
+          // this.baseService.addItem('salaJuegos/ahorcado', usuarioValor);  
+          this.baseService.updateItem('salaJuegos/ahorcado', this.usuarioLogueado.key, usuarioValor);  
+      
          
       }
       // Ha perdido: ¿Tiene 0 intentos?
@@ -177,18 +217,33 @@ export class MijuegoComponent implements OnInit {
       }
   }
 
-//   //======================================================================
-//   // EVENTOS
-//   //======================================================================
-//   // Al hacer clic en el boton se llama la funcion comprobarLetraUsuario
-    // nodoBoton.addEventListener('click', comprobarLetraUsuario);
-//   // Al hacer Enter con el teclado se llama a la funcion comprobarLetraUsuario
-    // nodoLetra.addEventListener('keyup', comprobarPulsadoEnter);
+checkAciertos(){
 
-//   //======================================================================
-//   // INICIO
-//   //======================================================================
- 
-// });
+  
+  this.baseService.getItems("salaJuegos/ahorcado").then(ahorcadoDatos => {
+
+    this.ahorcadoDatos = ahorcadoDatos;
+   
+
+    let usuarioConDatos = this.ahorcadoDatos.find(elem => (elem.email == this.usuarioLogueado.email ));
+
+    if (usuarioConDatos !== undefined) {
+    //  sessionStorage.setItem("Usuarios",JSON.stringify(usuarioConDatos))
+     this.aciertos = usuarioConDatos.valor;
+      // let objetoEnviarOtraCarga = {
+      //   "codigo": this.datosEscaneados.text,
+      //   "usuario": usuarioLogueado.correo,
+      //   "carga": this.cargaAux,
+      //   "cargaTotal": this.cargaTotal
+
+      // }
+      // this.baseService.addItem('cargaCredito', objetoEnviarOtraCarga);  
+
+    }
+
+
+});
+
+}
 
 }

@@ -14,7 +14,8 @@
   <div>
     <div class="wrap" style="text-align: center">
       <h2>Intentos</h2>
-      <label [(ngModel)]="intentos" name="intentos" ngDefaultControl class="subtitulos" >Intentos restantes: {{intentos}}</label>
+      <label [(ngModel)]="intentos" name="intentos" ngDefaultControl class="subtitulos" >Intentos restantes: {{intentos}}</label><br>
+      <label [(ngModel)]="aciertos" *ngIf="mAciertos" name="aciertos" ngDefaultControl class="aciertos" >Palabras acertadas: {{aciertos}}</label>
       <h2>Historial letras usadas</h2>
       <label *ngFor="let item of historial"  class="subtitulos">{{item}}</label>
       <br>

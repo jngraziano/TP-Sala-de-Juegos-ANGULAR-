@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { JuegoAgilidad } from '../../clases/juego-agilidad'
+import { JuegoAgilidad } from '../../clases/juego-agilidad';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
@@ -15,11 +16,18 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor:any;
+
+  aciertos:number=0;
+  agilidadDatos:any [];
+  usuarioLogueado: any;
+
   private subscription: Subscription;
   Mensajes:string;
   ngOnInit() {
   }
-   constructor() {
+   constructor(private baseService:FirebaseService) {
+    this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
+     this.checkAciertos();
      this.ocultarVerificar=true;
      this.Tiempo=5; 
      this.NuevoJuego();
@@ -57,7 +65,23 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.nuevoJuego.gano=true;
       this.enviarJuego.emit(this.nuevoJuego);
       clearInterval(this.repetidor);
-      this.MostarMensaje("PERFECTO" , true);
+      this.aciertos=this.aciertos+1;
+    
+
+
+       let usuarioValor = {
+        "email": this.usuarioLogueado.email,
+        "valor": this.aciertos,
+
+      }
+      let usuarioValorUpdate = {
+        "valor": this.aciertos,
+
+      }
+
+      // this.baseService.addItem('salaJuegos/ahorcado', usuarioValor);  
+      this.baseService.updateItem('salaJuegos/agilidad', this.usuarioLogueado.key, usuarioValor);  
+      this.MostarMensaje("PERFECTO! Aciertos: "+this.aciertos , true);
     }
     else
     {
@@ -84,5 +108,35 @@ export class AgilidadAritmeticaComponent implements OnInit {
      }, 3000);
   
    }
+
+   checkAciertos(){
+
+  
+    this.baseService.getItems("salaJuegos/agilidad").then(agilidadDatos => {
+  
+      this.agilidadDatos = agilidadDatos;
+     
+  
+      let usuarioConDatos = this.agilidadDatos.find(elem => (elem.email == this.usuarioLogueado.email ));
+  
+      if (usuarioConDatos !== undefined) {
+      //  sessionStorage.setItem("Usuarios",JSON.stringify(usuarioConDatos))
+       this.aciertos = usuarioConDatos.valor;
+        // let objetoEnviarOtraCarga = {
+        //   "codigo": this.datosEscaneados.text,
+        //   "usuario": usuarioLogueado.correo,
+        //   "carga": this.cargaAux,
+        //   "cargaTotal": this.cargaTotal
+  
+        // }
+        // this.baseService.addItem('cargaCredito', objetoEnviarOtraCarga);  
+  
+      }
+  
+  
+  });
+  
+  }
+  
 
 }
