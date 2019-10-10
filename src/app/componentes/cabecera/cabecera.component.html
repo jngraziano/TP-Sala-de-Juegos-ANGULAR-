@@ -9,11 +9,11 @@
   [ngClass]="{ 'show': navbarOpen }">
   <ul class="navbar-nav mr-auto">
       <li><a class="nav-item nav-link active" routerLink="/QuienSoy" >¿Quien Soy? <i class="fa fa-user"></i></a></li>
-      <li><a class="nav-item nav-link" routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
-      <li><a class="nav-item nav-link" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+      <li><a class="nav-item nav-link"  *ngIf="usuarioNologeado" routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
+      <li><a class="nav-item nav-link" *ngIf="usuarioNologeado" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
   </ul>
   <div class="navbar-nav">
-      <a class="nav-item nav-link" (click)="Desloguear()">DESLOGUEAR<i class="fa fa-user"></i></a>
+      <a class="nav-item nav-link"  *ngIf="usuarioLOG" (click)="Desloguear()">DESLOGUEAR<i class="fa fa-user"></i></a>
  
   </div>
 </div>

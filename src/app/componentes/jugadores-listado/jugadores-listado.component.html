@@ -2,13 +2,14 @@
 <html>
 <header>
 
-    <!-- <nav class="navbar navbar-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-sm navbar-dark bg-dark">
         <div class="container-fluid">
 
           
-              <div class="container">
+              <div class="container" style="text-align: center;">
                  
-                  <div class="row">
+                <h2>Listado de usuarios registrados</h2>
+                  <!-- <div class="row">
                     <div class="col">
                         <button class="btn btn-outline-primary btn-block" (click)="TraerTodos()">Todos los jugadores</button>
                     </div>
@@ -18,7 +19,7 @@
                     <div class="col">
                         <button class="btn btn-outline-danger btn-block" (click)="TraerPerdedores()">Los perdedores</button>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
             
 
@@ -27,7 +28,7 @@
           
       
         </div>
-    </nav> -->
+    </nav>
 
 
 
@@ -46,9 +47,9 @@
           <tr>
           
             <th  scope="col" class="col1">USUARIO</th>
-            <th  scope="col" class="col2">CUIT</th>
+            <!-- <th  scope="col" class="col2">CUIT</th>
             <th  scope="col" class="col3">SEXO</th>
-            <th  scope="col" class="col4">GANO</th>
+            <th  scope="col" class="col4">GANO</th> -->
 
   
           </tr>
@@ -60,8 +61,8 @@
                 <tr *ngFor="let jugador of listado" >
                   <td>{{jugador.usuario}} </td>
                   <td>{{jugador.cuit}} </td> 
-                  <td>{{jugador.sexo | sexo| uppercase}} </td> 
-                  <td>{{jugador.gano}} </td> 
+                  <!-- <td>{{jugador.sexo | sexo| uppercase}} </td> 
+                  <td>{{jugador.gano}} </td>  -->
                   
                   <!-- <td><button class="btn btn-warning" (click)="editar(item)">Edit</button>
                   <button class="btn btn-danger" (click)="borrar(item)">Delete</button></td> -->
