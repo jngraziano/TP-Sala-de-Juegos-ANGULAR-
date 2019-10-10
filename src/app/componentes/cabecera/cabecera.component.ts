@@ -44,4 +44,12 @@ export class CabeceraComponent implements OnInit {
 
   }
 
+  gPrincipal(){
+    if(this.usuarioLogueado != undefined){
+      this.router.navigateByUrl('/Principal'); 
+      
+    }
+   
+  }
+
 }
