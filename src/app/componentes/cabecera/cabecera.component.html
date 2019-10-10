@@ -13,7 +13,8 @@
       <li><a class="nav-item nav-link" *ngIf="usuarioNologeado" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
   </ul>
   <div class="navbar-nav">
-      <a class="nav-item nav-link"  *ngIf="usuarioLOG" (click)="Desloguear()">DESLOGUEAR<i class="fa fa-user"></i></a>
+      <!-- <a class="nav-item nav-link"  *ngIf="usuarioLOG" (click)="desloguear()">DESLOGUEAR<i class="fa fa-user"></i></a> -->
+      <button type="button"  class="btn btn-outline-dark" *ngIf="usuarioLOG" name="deslog" (click)="deslog()">SALIR<i class="fa fa-user"></i> </button>
  
   </div>
 </div>

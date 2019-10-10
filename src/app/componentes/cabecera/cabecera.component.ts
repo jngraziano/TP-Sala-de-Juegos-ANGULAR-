@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import undefined = require('firebase/empty-import');
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-cabecera',
@@ -14,7 +14,7 @@ export class CabeceraComponent implements OnInit {
     usuarioNologeado:boolean = true;
 
 
-  constructor(router: Router) {
+  constructor(private router: Router) {
     this.navbarOpen = false;
     this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
     if(this.usuarioLogueado != undefined)
@@ -37,10 +37,11 @@ export class CabeceraComponent implements OnInit {
   }
 
 
-  Desloguear()
+  deslog()
   {
-    // localStorage.setItem('token', null);
-    // this.router.navigateByUrl('/Login'); 
+    sessionStorage.setItem('Usuarios', null);
+    this.router.navigateByUrl('/Login'); 
+
   }
 
 }
