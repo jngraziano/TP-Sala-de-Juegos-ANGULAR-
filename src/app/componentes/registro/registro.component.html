@@ -74,25 +74,30 @@
           
           <div class="input-group mb-3">
          
-            <input  type="password" class="form-control" [(ngModel)]="usuario.psw" name="psw"  placeholder="Tu clave" required>
+            <input  type="password" class="form-control" [(ngModel)]="usuario.password" name="password"  placeholder="Tu clave" required>
   
          </div>
           
          <div class="input-group mb-3">
          
-            <input  type="password" class="form-control" [(ngModel)]="usuario.pswR" name="psw-repeat"  placeholder="Repetir Clave" required>
+            <input  type="password" class="form-control" [(ngModel)]="usuario.passwordR" name="passwordR"  placeholder="Repetir Clave" required>
   
          </div>
-         <div class="input-group mb-3">
+         <!-- <div class="input-group mb-3">
             <input type="checkbox" checked="checked">Recordar mis datos
 
-         </div>
+         </div> -->
+
+         
 
         <div class="clearfix">
          
             <!-- <button class="btn btn-outline-success btn-block"  (click)="agregarUsuario()">CREAR</button> -->
             <button type="button" class="btn btn-outline-danger btn-block" onclick="document.getElementById('id01').style.display='none'">Me arrepenti</button>
-            <button type="submit" class="btn btn-outline-success btn-block">Registrarme</button>
+            <button (click)="registrarme()" class="btn btn-outline-success btn-block">Registrarme</button>
+            <p *ngIf="error">Usuario ya utilizado!</p>
+            <p *ngIf="success">Usuario Registrado!</p>
+            <p *ngIf="errorP">Las contraseñas no coinciden!</p>
         </div>
 
 
