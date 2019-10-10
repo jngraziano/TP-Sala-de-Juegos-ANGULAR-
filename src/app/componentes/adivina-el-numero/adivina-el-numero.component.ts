@@ -1,6 +1,7 @@
 
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { JuegoAdivina } from '../../clases/juego-adivina'
+import { JuegoAdivina } from '../../clases/juego-adivina';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -14,8 +15,14 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
+
+  aciertos:number=0;
+  adivinaDatos:any [];
+  usuarioLogueado: any;
  
-  constructor() { 
+  constructor(private baseService:FirebaseService) { 
+    this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
+    this.checkAciertos();
     this.nuevoJuego = new JuegoAdivina();
     this.contador = 0;
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto+" - Contador; "+this.contador);  
@@ -34,7 +41,15 @@ export class AdivinaElNumeroComponent implements OnInit {
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
-      this.MostarMensaje("Sos un Genio!!!",true);
+
+      this.aciertos=this.aciertos+1;
+      let usuarioValor = {
+       "email": this.usuarioLogueado.email,
+       "valor": this.aciertos,
+
+     }
+      this.baseService.updateItem('salaJuegos/adivina', this.usuarioLogueado.key, usuarioValor);  
+      this.MostarMensaje("Adivinaste!! Aciertos: "+this.aciertos,true);
       this.nuevoJuego.numeroSecreto=0;
 
     }else{
@@ -102,6 +117,26 @@ export class AdivinaElNumeroComponent implements OnInit {
     console.info("ESTOY EN GANO ADIVINA EL NUMERO CON EVENT");
    }
   ngOnInit() {
+  }
+
+  checkAciertos(){
+
+  
+    this.baseService.getItems("salaJuegos/adivina").then(adivinaDatos => {
+  
+      this.adivinaDatos = adivinaDatos;
+     
+  
+      let usuarioConDatos = this.adivinaDatos.find(elem => (elem.email == this.usuarioLogueado.email ));
+  
+      if (usuarioConDatos !== undefined) {
+       this.aciertos = usuarioConDatos.valor;
+    
+      }
+  
+  
+  });
+  
   }
 
 }

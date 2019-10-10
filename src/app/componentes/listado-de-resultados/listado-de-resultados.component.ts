@@ -11,7 +11,9 @@ export class ListadoDeResultadosComponent implements OnInit {
  @Input()
  listado: Array<any>;
  listadoAhorcado: any;
-
+ listadoAgilidad: any;
+ listadoPPT:any;
+ listadoAdivina:any;
 
 
   constructor(private baseService:FirebaseService) {
@@ -31,7 +33,25 @@ export class ListadoDeResultadosComponent implements OnInit {
       this.listadoAhorcado = ahorcadoDatos;
      
   
-  });
+    });
+    this.baseService.getItems("salaJuegos/agilidad").then(agilidadDatos => {
+
+      this.listadoAgilidad = agilidadDatos;
+     
+  
+    });
+    this.baseService.getItems("salaJuegos/ppt").then(pptDatos => {
+
+      this.listadoPPT = pptDatos;
+     
+  
+    });
+    this.baseService.getItems("salaJuegos/adivina").then(adivinaDatos => {
+
+      this.listadoAdivina = adivinaDatos;
+     
+  
+    });
   }
 
   ver() {

@@ -17,11 +17,36 @@
       <div class="emptybar"></div>
       <div class="filledbar"></div>
     </div>
-    <div class="circle">
-      <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <circle class="stroke" cx="60" cy="60" r="50"/>
-    </svg> -->
-    </div>
+    <div class="circle" >
+        <table >
+          <thead>
+            <tr>
+              <td>
+                Usuario
+              </td>
+              <td>
+                Aciertos
+              </td>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listadoAgilidad">
+            <tr>
+              <td>
+                  {{item.email}}
+              </td>
+              <td style="text-align: center;">
+                  {{item.valor}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <!-- Cant. Aciertos: 
+        ------------- -->
+       <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <circle class="stroke" cx="60" cy="60" r="50"/>
+      </svg>-->
+      </div> 
   </div>
   <div class="card">
     <h3 class="title">P P T</h3>
@@ -29,11 +54,36 @@
       <div class="emptybar"></div>
       <div class="filledbar"></div>
     </div>
-    <div class="circle">
-     <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <circle class="stroke" cx="60" cy="60" r="50"/>
-    </svg>-->
-    </div> 
+    <div class="circle" >
+        <table >
+          <thead>
+            <tr>
+              <td>
+                Usuario
+              </td>
+              <td>
+                Aciertos
+              </td>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listadoPPT">
+            <tr>
+              <td>
+                  {{item.email}}
+              </td>
+              <td style="text-align: center;">
+                  {{item.valor}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <!-- Cant. Aciertos: 
+        ------------- -->
+       <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <circle class="stroke" cx="60" cy="60" r="50"/>
+      </svg>-->
+      </div> 
   </div>
   <div class="card">
     <h3 class="title">Adivina N°</h3>
@@ -41,11 +91,36 @@
       <div class="emptybar"></div>
       <div class="filledbar"></div>
     </div>
-     <div class="circle">
-     <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <circle class="stroke" cx="60" cy="60" r="50"/>
-    </svg> -->
-    </div>
+    <div class="circle" >
+        <table >
+          <thead>
+            <tr>
+              <td>
+                Usuario
+              </td>
+              <td>
+                Aciertos
+              </td>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listadoAdivina">
+            <tr>
+              <td>
+                  {{item.email}}
+              </td>
+              <td style="text-align: center;">
+                  {{item.valor}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <!-- Cant. Aciertos: 
+        ------------- -->
+       <!--  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <circle class="stroke" cx="60" cy="60" r="50"/>
+      </svg>-->
+      </div> 
   </div>
   <div class="card">
     <h3 class="title">Ahorcado</h3>

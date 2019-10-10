@@ -74,10 +74,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         "valor": this.aciertos,
 
       }
-      let usuarioValorUpdate = {
-        "valor": this.aciertos,
-
-      }
+     
 
       // this.baseService.addItem('salaJuegos/ahorcado', usuarioValor);  
       this.baseService.updateItem('salaJuegos/agilidad', this.usuarioLogueado.key, usuarioValor);  

@@ -1,5 +1,6 @@
   import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
   import {JuegoPiedraPapelTijera} from "../../clases/juego-piedra-papel-tijera";
+  import { FirebaseService } from '../../servicios/firebase.service';
 
 
 @Component({
@@ -17,7 +18,13 @@ export class PptComponent implements OnInit {
   puntosPc=0;
   mensaje:string=" ";
 
-  constructor() {
+  aciertos:number=0;
+  pptDatos:any [];
+  usuarioLogueado: any;
+
+  constructor(private baseService:FirebaseService) {
+    this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
+    this.checkAciertos();
     this.nuevoPpt=new JuegoPiedraPapelTijera()
    }
 
@@ -61,11 +68,42 @@ export class PptComponent implements OnInit {
     this.enviarJuego.emit(this.nuevoPpt);
     if(this.nuevoPpt.gano)
     {
-      this.mensaje="¡¡¡Ganaste!!!";
+      this.aciertos=this.aciertos+1;
+      let usuarioValor = {
+       "email": this.usuarioLogueado.email,
+       "valor": this.aciertos,
+
+     }
+    
+
+     // this.baseService.addItem('salaJuegos/ahorcado', usuarioValor);  
+     this.baseService.updateItem('salaJuegos/ppt', this.usuarioLogueado.key, usuarioValor);  
+      this.mensaje="¡¡¡Ganaste!!! Aciertos: "+this.aciertos;
     }
     else{
       this.mensaje="¡¡Perdiste!! Seguí participando...";
     }
    }
+
+   checkAciertos(){
+
+  
+    this.baseService.getItems("salaJuegos/ppt").then(pptDatos => {
+  
+      this.pptDatos = pptDatos;
+     
+  
+      let usuarioConDatos = this.pptDatos.find(elem => (elem.email == this.usuarioLogueado.email ));
+  
+      if (usuarioConDatos !== undefined) {
+       this.aciertos = usuarioConDatos.valor;
+      
+  
+      }
+  
+  
+  });
+  
+  }
 
 }
